@@ -1,9 +1,7 @@
-import CardContext from "./CartContext";
-import {useContext} from 'react';
-function ThanhToan(){
-    const [gioHang,setGioHang] = useContext(CardContext);
+import React,{ useState} from 'react';
+function ThanhToan(props){
     var totalMoney = 0;
-    gioHang.map((item)=>{
+    props.gioHang.map((item)=>{
         totalMoney += item.price * item.quantity;
     })
     return(
@@ -12,7 +10,7 @@ function ThanhToan(){
                 <h2>Giỏ hàng của bạn</h2>
                 <div className="ruler"></div>
                 <div className="items">
-                    {gioHang.map((item,index)=>{
+                    {props.gioHang.map((item,index)=>{
                         return(
                             <div className="item">
                                 <div className="item-container" key={item.id}>
@@ -21,14 +19,20 @@ function ThanhToan(){
                                         <p style={{color:'red'}}>Giá:{item.price}đ</p>
                                         <p>Số lượng:{item.quantity}</p>
                                     </div>
+                                    <div>
+                                        <button style={{border:"1px solid black", padding:"15px",marginLeft:"10px"}} onClick={()=>{props.onDelete(index)}}>Xóa</button>
+                                    </div>
                                 </div>
                                 <div className="ruler"></div>
                             </div>
                         )
                         
-                    })}
+                    })} 
                 </div>
-                <div className="totalMoney"><h2>Tổng tiền :{totalMoney}</h2></div>
+                <div className="totalMoney">
+                    <button onClick={props.onDeleteAll}>Xóa tất cả giỏ hàng</button>
+                    <h2 style={{color:"red"}}>Tổng tiền :{totalMoney}</h2>
+                </div>
             </div>
         </div>
         

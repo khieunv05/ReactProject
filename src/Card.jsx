@@ -1,10 +1,7 @@
 import react,{useState} from 'react';
-import {useContext} from 'react';
-import CardContext from './CartContext';
 function Card(props){
     const [isDisplay,setDisplay] = useState(false);
     const [count,setCount] = useState(1);
-    const [gioHang,setGioHang] = useContext(CardContext);
     const handleCountIncrement = () =>{
         setCount(c => c + 1);
     }
@@ -18,10 +15,11 @@ function Card(props){
         setDisplay(!isDisplay);
         console.log(isDisplay);
     }
-    const handleAddToCart = () =>{
-        setGioHang(gh => [...gh,{id:props.id,title:props.cardTitle,price:props.price,quantity:count}]);
+    const addToCart = () =>{
+        const item = {id:props.id,title:props.cardTitle,price:props.price,quantity:count};
+        props.handleAddToCard(item);
+        setDisplay(!isDisplay);
         setCount(1);
-        console.log(gioHang);
     }
     return(
         <>
@@ -36,7 +34,7 @@ function Card(props){
                     <span>{count}</span>
                     <button onClick={handleCountDecrement} style={{padding:'5px'}}>-</button>
                 </div>
-                <button  style={{padding:'10px'}} onClick={handleAddToCart}>Thêm vào giỏ hàng</button>
+                <button  style={{padding:'10px'}} onClick={addToCart}>Thêm vào giỏ hàng</button>
                 <button onClick={handleDisplay} style={{padding:'10px'}}>Thoát</button>
             </div>
         </div>

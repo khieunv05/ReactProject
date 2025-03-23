@@ -47,3 +47,50 @@
 .item-container p{
   font-size: 1.5rem;
 }
+.totalMoney{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 1.5rem;
+}
+.totalMoney button{
+  background-color: aqua;
+  padding: 10px;
+}
+.form{
+  margin: 100px 25%;
+  background-color: lightgray;
+  width: 50%;
+  text-align: center;
+}
+.form div{
+  display: flex;
+  flex-direction: column;
+  color: red;
+  font-size: 1.5rem;
+  padding: 10px;
+}
+.form input{
+  padding: 10px;
+  margin: 20px;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+.form-money{
+  text-align: center;
+  padding: 20px;
+  margin: 20px 25%;
+  background-color: lightgray;
+}
+.form-money label, .form-money input{
+  color: red;
+  font-size: 1.5rem;
+  padding: 5px;
+  margin: 5px;
+}
+.form-money input{
+  border-radius: 5px;
+  padding: 10px;
+}

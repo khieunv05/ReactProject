@@ -24,7 +24,7 @@ function App() {
   const handleAddUser = (newUser) =>{
     setUser([...user,newUser])
   }
-    const handleAddMoney = (e,newMoney) =>{
+    const handleAddMoney = (newMoney) =>{
       const check = user.find((item) =>item.taiKhoan === whoLogin.taiKhoan);
       check.money += parseInt(newMoney,10);
       const newUser=user.map((item)=>{
@@ -50,7 +50,7 @@ function App() {
       <Navbar isLogin={whoLogin} logOut={handleLogOut}/>
       <Routes>
         <Route path="/" element={<Home  addToCart={handleAddToCart}/>} />
-        <Route path="/cart" element={<ThanhToan gioHang={gioHang} onDelete={handleRemoveItem} onDeleteAll={handleRemoveAll}/>}  />
+        <Route path="/cart" element={<ThanhToan gioHang={gioHang} onDelete={handleRemoveItem} onDeleteAll={handleRemoveAll} whoLogin={whoLogin} users={user} setUsers={setUser}/>}  />
         <Route path="/register" element={<User onAdd={handleAddUser}/>}></Route>
         <Route path="/login" element={<Login onLogin={handleLogin} isLogin={whoLogin}/>}></Route>
         <Route path="/money" element={<AddMoney onAddMoney={handleAddMoney}/>}></Route>

@@ -9,13 +9,19 @@ function Navbar(props){
         ,padding:'10px 50px'
         }}>
             <Link to='/'> <img src="https://www.tlu.edu.vn/Portals/_default/skins/tluvie/images/logo.png" alt="" /></Link>
-            <div style={{display:'flex'}}>
-                <Link to='/cart'> <p style={{fontSize:'1.5rem', margin:"10px"}}>Giỏ hàng</p></Link>
-                <Link to='/register'><p style={{fontSize:'1.5rem', margin:"10px"}}>Đăng kí</p></Link>
-                {props.isLogin === null && <Link to='/login'><p style={{fontSize:'1.5rem', margin:"10px"}}>Đăng nhập</p></Link>}
-                {props.isLogin !== null && <Link to='/login'><p style={{fontSize:'1.5rem', margin:"10px"}} onClick={props.logOut}>Đăng xuất</p></Link>}
-                {props.isLogin !== null && <Link to='/money'><p style={{fontSize:'1.5rem', margin:"10px"}}>Thêm tiền</p></Link>}
+            <div >
+                <div style={{display:'flex'}}>
+                    <Link to='/cart'> <p style={{fontSize:'1.5rem', margin:"10px"}}>Giỏ hàng</p></Link>
+                    <Link to='/register'><p style={{fontSize:'1.5rem', margin:"10px"}}>Đăng kí</p></Link>
+                    {props.isLogin === null && <Link to='/login'><p style={{fontSize:'1.5rem', margin:"10px"}}>Đăng nhập</p></Link>}
+                    {props.isLogin !== null && <Link to='/login'><p style={{fontSize:'1.5rem', margin:"10px"}} onClick={props.logOut}>Đăng xuất</p></Link>}
+                    {props.isLogin !== null && <Link to='/money'><p style={{fontSize:'1.5rem', margin:"10px"}}>Thêm tiền</p></Link>}
+                </div>
+                <div>
+                    {props.isLogin !== null && <p style={{fontSize:'1.5rem', margin:"10px"}}>Số tiền: {props.isLogin.money}</p>}
+                </div>
             </div>
+            
             
             
         </div>

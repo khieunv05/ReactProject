@@ -8,10 +8,12 @@ import User from './User.js';
 import Home from './Home.jsx';
 import Login from './Login.js';
 import AddMoney from './AddMoney.js';
+import { useNavigate } from "react-router-dom";
 function App() {
   const [gioHang,setGioHang] = useState([]);
   const [user,setUser] = useState([]);
   const [whoLogin,setWhoLogin] = useState(null);
+  const navigate = useNavigate();
   const handleAddToCart = (item) =>{
     setGioHang([...gioHang,item]);
   }
@@ -40,13 +42,14 @@ function App() {
     if(check){
       alert("Đăng nhập thành công");
       setWhoLogin(check);
+      navigate('/');
     }
   }
   const handleLogOut = () =>{
     setWhoLogin(null);
   }
   return (
-    <Router>
+    <>
       <Navbar isLogin={whoLogin} logOut={handleLogOut}/>
       <Routes>
         <Route path="/" element={<Home  addToCart={handleAddToCart}/>} />
@@ -55,7 +58,7 @@ function App() {
         <Route path="/login" element={<Login onLogin={handleLogin} isLogin={whoLogin}/>}></Route>
         <Route path="/money" element={<AddMoney onAddMoney={handleAddMoney}/>}></Route>
       </Routes> 
-    </Router>
+    </>
     
     
   );

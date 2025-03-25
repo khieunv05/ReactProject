@@ -1,5 +1,5 @@
 import Card from "./Card";
-import React from "react";
+import React,{useState} from "react";
 function Home(props){
     const mayTinh = [
       {src:"https://product.hstatic.net/1000288298/product/dsc01962_82292de4a5db421192d46d563989e690_large.jpg",cardTitle:"PC FASTER GAMING 10400F - RTX 3050 6GB",cardText:"9,990,000đ",price:9990000},
@@ -13,22 +13,49 @@ function Home(props){
       {src:"https://product.hstatic.net/1000288298/product/pc_do_hoa_916527c66b92463f9fb0e355a865a923_large.jpg",cardTitle:"PC Workstation 2D 3D- Edit Video i5 12600K - RTX 3050 6GB OC",cardText:"15,680,000đ",price:15680000},
       {src:"https://product.hstatic.net/1000288298/product/dsc07156_83760289bdf14b5cb587ae2be790c747_large.jpg",cardTitle:"PC Đồ Họa Hiệu Suất Cao i5 14500-GTX 1660 Super 6GB",cardText:"16,680,000đ",price:16680000}
     ];
+    const [currentPage,setCurrentPage] = useState(1);
+    const productPerPage = 5;
+    const indexOfLastProduct = Math.min(currentPage * productPerPage,mayTinh.length);
+    const indexOfFirstProduct = Math.max(0,indexOfLastProduct - productPerPage);
+    const handlePageIncrease = ()=>{
+      
+      if(currentPage * productPerPage >= mayTinh.length){
+        setCurrentPage(c=>c = Math.ceil(mayTinh.length/productPerPage));
+      }
+      else setCurrentPage(c=>c + 1);
+    }
+    const handlePageDecrease = ()=>{  
+      if(currentPage <= 1){
+        setCurrentPage(c=> c = 1);
+      }
+      else setCurrentPage(c=>c - 1);
+    }
      return(
         <div className="App main">
         <h1>PC GAMING</h1>
         <div className='card-container'>
-          {mayTinh.slice(0,5).map((item,index)=>{
-            return(
-              <Card src={item.src} cardTitle={item.cardTitle} cardText={item.cardText} price={item.price} id={index} handleAddToCard={props.addToCart}/>
-            )
-          })}
-        </div>
-        <div className='card-container'>
-          {mayTinh.slice(5,10).map((item,index)=>{
+          <div>
+            <button onClick={handlePageDecrease}>Previous</button>
+            <button onClick={handlePageIncrease}>Next</button>
+          </div>
+          <div className="card-item">
+            {mayTinh.slice(indexOfFirstProduct,indexOfLastProduct).map((item,index)=>{
               return(
                 <Card src={item.src} cardTitle={item.cardTitle} cardText={item.cardText} price={item.price} id={index} handleAddToCard={props.addToCart}/>
               )
             })}
+          </div>
+        </div>
+        <div className='card-container'>
+          <div>
+          </div>
+          <div className="card-item">
+            {mayTinh.slice(5,10).map((item,index)=>{
+                return(
+                  <Card src={item.src} cardTitle={item.cardTitle} cardText={item.cardText} price={item.price} id={index} handleAddToCard={props.addToCart}/>
+                )
+            })}
+          </div>
         </div>
       </div> 
      )

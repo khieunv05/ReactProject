@@ -34,9 +34,13 @@ function Home(props){
         <div className="App main">
         <h1>PC GAMING</h1>
         <div className='card-container'>
+
           <div>
             <button onClick={handlePageDecrease}>Previous</button>
             <button onClick={handlePageIncrease}>Next</button>
+          </div>
+          <div style={{width:'100%',overflowX:'hidden'}}>
+            <div style={{fontSize:'2rem'}} className="running">Sản phẩm bán chạy</div>
           </div>
           <div className="card-item">
             {mayTinh.slice(indexOfFirstProduct,indexOfLastProduct).map((item,index)=>{
@@ -48,6 +52,9 @@ function Home(props){
         </div>
         <div className='card-container'>
           <div>
+          </div>
+          <div style={{width:'100%',overflowX:'hidden'}}>
+            <div style={{fontSize:'2rem'}} className="running">Sản phẩm hiệu năng cao</div>
           </div>
           <div className="card-item">
             {mayTinh.slice(5,10).map((item,index)=>{

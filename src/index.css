@@ -106,3 +106,33 @@ a{
   border-radius: 5px;
   padding: 10px;
 }
+.running{
+  animation: runningWord 5s  linear infinite;
+}
+@keyframes runningWord {
+  0% {
+    transform: translateX(0%);
+    color: red;
+  }
+  20% {
+    transform: translateX(20%);
+    color: blue;
+  }
+  40% {
+    transform: translateX(40%);
+    color: green;
+  }
+  60%{
+    transform: translateX(60%);
+    color: orange;
+  }
+  80% {
+    transform: translateX(80%);
+    color: yellow;
+  }
+  100% {
+    transform: translateX(100%);
+    color: red;
+  }
+  
+}

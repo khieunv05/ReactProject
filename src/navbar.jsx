@@ -19,6 +19,7 @@ function Navbar(props){
                 </div>
                 <div>
                     {props.isLogin !== null && <p style={{fontSize:'1.5rem', margin:"10px"}}>Số tiền: {props.isLogin.money}</p>}
+                    {props.isLogin !== null && <p style={{fontSize:'1.5rem', margin:"10px"}}>Chào: {props.isLogin.hoTen}</p>}
                 </div>
             </div>
             

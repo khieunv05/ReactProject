@@ -1,5 +1,7 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 function Login(props){
+    const navigate = useNavigate();
     const [taiKhoan,setTaiKhoan] = useState("");
     const [matKhau,setMatKhau] = useState("");
     const handleTaiKhoan = (e) =>{
@@ -14,6 +16,7 @@ function Login(props){
         props.onLogin(user);
         setTaiKhoan("");
         setMatKhau("");
+        navigate('/');
     }
     return(
         <form className="form">

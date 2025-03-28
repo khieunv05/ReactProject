@@ -1,138 +1,168 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-.main{
+
+.main {
   display: flex;
   flex-direction: column;
 }
-.card-container{
+
+.card-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-.card-container button{
+
+.card-container button {
   background-color: aqua;
   padding: 10px;
   margin: 10px;
 }
-.card-item{
+
+.card-item {
   display: flex;
 
 }
-.card{
+
+.card {
   padding: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.card img{
+
+.card img {
   width: 100%;
   padding: 10px 0px;
 }
-.card p, .detail p{
+
+.card p,
+.detail p {
   padding: 10px 0px;
   color: red;
 }
-.card button{
+
+.card button {
   background-color: aqua;
   padding: 10px;
 }
-.main-content{
+
+.main-content {
   margin: 50px;
   text-align: center;
   border: 1px solid black;
-  
+
 }
-.ruler{
+
+.ruler {
   border: 1px solid black;
   margin: 10px 0px;
 }
-.item-container{
+
+.item-container {
   display: flex;
   justify-content: space-between;
   padding: 20px;
 }
-.item-container p{
+
+.item-container p {
   font-size: 1.5rem;
 }
-.totalMoney{
+
+.totalMoney {
   display: flex;
   justify-content: space-between;
   padding: 20px;
   font-size: 1.5rem;
 }
-.totalMoney button{
+
+.totalMoney button {
   background-color: aqua;
   padding: 10px;
-  margin:5px;
+  margin: 5px;
 }
-.form{
+
+.form {
   margin: 100px 25%;
   background-color: lightgray;
   width: 50%;
   text-align: center;
 }
-.form div{
+
+.form div {
   display: flex;
   flex-direction: column;
-  color: red;
+  color: green;
   font-size: 1.5rem;
   padding: 10px;
 }
-.form input{
+
+.form input {
   padding: 10px;
   margin: 20px;
 }
-a{
+
+a {
   text-decoration: none;
   color: white;
 }
-.form-money{
+
+.form-money {
   text-align: center;
   padding: 20px;
   margin: 20px 25%;
   background-color: lightgray;
 }
-.form-money label, .form-money input{
+
+.form-money label,
+.form-money input {
   color: red;
   font-size: 1.5rem;
   padding: 5px;
   margin: 5px;
 }
-.form-money input{
+
+.form-money input {
   border-radius: 5px;
   padding: 10px;
 }
-.running{
-  animation: runningWord 5s  linear infinite;
+
+.running {
+  animation: runningWord 5s linear infinite;
 }
+
 @keyframes runningWord {
   0% {
     transform: translateX(0%);
     color: red;
   }
+
   20% {
     transform: translateX(20%);
     color: blue;
   }
+
   40% {
     transform: translateX(40%);
     color: green;
   }
-  60%{
+
+  60% {
     transform: translateX(60%);
     color: orange;
   }
+
   80% {
     transform: translateX(80%);
     color: yellow;
   }
+
   100% {
     transform: translateX(100%);
     color: red;
   }
-  
+
 }

@@ -39,6 +39,7 @@ function App() {
       return item.taiKhoan === check.taiKhoan ? check : item;
     })
     setUser(newUser);
+    localStorage.setItem('usersData', JSON.stringify(newUser));
     console.log(check.money);
   }
   console.log(user);
